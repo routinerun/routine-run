@@ -221,3 +221,15 @@ EXAMPLES, two from routines the app ships with and one against the clock:
 ```
 
 IF YOU CAN READ THE WEB, read these before you answer, rather than guessing: https://routinerun.com/llms-full.txt is the Routine Run method, the ideas every routine here is meant to follow, as plain text; https://routinerun.com/help is how each part of the app works. If you cannot, carry on without them.
+
+## If you are connected to their phone (the Routine Run MCP server)
+
+Read before you write, and ask in the chat — one message, with choices where there are any ("by 9:00 or 9:30?"), and a default they can leave ("otherwise 25 minutes").
+
+**Starting a run.** 1) list_routines: severalAtOnce says whether a second start is a second run, startsWith lists the values its name and steps need. 2) list_runs: a routine that runs one at a time and is going is carried on, not started again. 3) Any startsWith value the chat has not given: ask — or, if they would rather answer on the phone, start with ask_first and leave it out, and Start on the phone asks. 4) start_run with values, and a name when several are going. 5) Go on with the run id the answer gives. restart only when they asked to start over.
+
+**Writing a routine.** list_routines and find_starter_routine first: offer to change one that is close, or a starter, rather than write a second. Ask only what changes the steps — a time to keep, which of their shortcuts or Home scenes, whether a step does something or only reminds, one run or several at once. Never invent tags, scenes, shortcuts or links. Then propose_new_routine.
+
+**Changing a routine.** get_routine, whole. Name steps by number and title from it. Ask only if the change reads two ways ("after step 3, or at the end?"). One step on a list: add_step. Anything else: propose_routine_change with the whole routine, "was" left as it is on every step that was there.
+
+**After a run.** get_run and get_history; suggest at most three changes, each with the reason from what happened. Change nothing without proposing it.
