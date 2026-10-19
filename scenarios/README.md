@@ -7,7 +7,7 @@ What Routine Run does, each in under a minute, filmed on a real phone and watch.
 PagerDuty sends an alert. The routine "When something pages you" starts by itself, and its
 first step is on the Lock Screen before the phone is unlocked; Next moves it on from the card.
 
-https://github.com/user-attachments/assets/7e011637-86c1-4105-9ec0-11952a16a5c1
+https://github.com/user-attachments/assets/38cc2d2a-36fd-457d-b4be-8260b4d5f15b
 
 Needs iOS 27, PagerDuty's app, and the shortcut from [connections/pagerduty.json](../connections/pagerduty.json).
 How to set it up: [routinerun.com/help/on-call](https://routinerun.com/help/on-call).
@@ -28,7 +28,7 @@ Next tapped on the watch reaches the step "Turn a Focus on". The step runs its s
 itself, in the background — the phone stays locked and nobody touches it — and the Focus comes
 on, with its own wallpaper. The step did the work; the tap on the wrist only said "next".
 
-https://github.com/user-attachments/assets/27ca73c8-d8d0-41b3-aace-583c8b7ce685
+https://github.com/user-attachments/assets/9aa4f288-3e6e-4ea7-ba69-c3baca38e582
 
 The shortcut is [Focus On via Routine Run](../shortcuts/ours/focus-on.json); a step runs it
 in the background through the Routine Run bridge ([how](https://routinerun.com/help/in-the-background)).
