@@ -1,0 +1,28 @@
+{
+  "id": "zapier",
+  "service": "Zapier",
+  "says": "Start a Zap",
+  "summary": "Starts a Zap that begins with Webhooks by Zapier, Catch Hook, handing it the run, the step and a message.",
+  "docs": "https://help.zapier.com/hc/en-us/articles/8496288690317",
+  "fields": [
+    {"key": "text", "optional": true, "example": "{instance} reached {step}"}
+  ],
+  "secrets": [
+    {"name": "zapier", "is": "The end of the hook's address, after /hooks/catch/", "where": "In Zapier: a Zap whose trigger is Webhooks by Zapier, Catch Hook, shows the address to copy."}
+  ],
+  "request": {
+    "method": "POST",
+    "url": "https://hooks.zapier.com/hooks/catch/{secret:zapier}",
+    "headers": {"Content-Type": "application/json"},
+    "body": {"run": "{instance}", "step": "{step}", "text": "{field:text}"}
+  },
+  "sends": "The run's name, the step's name and the message, to Zapier.",
+  "hosts": ["hooks.zapier.com"],
+  "samples": [
+    {
+      "fields": {},
+      "url": "https://hooks.zapier.com/hooks/catch/{secret:zapier}",
+      "body": "{\"run\":\"{instance}\",\"step\":\"{step}\"}"
+    }
+  ]
+}

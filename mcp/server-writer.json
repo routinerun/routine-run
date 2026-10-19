@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.routinerun/routine-writer",
+  "title": "Routine Run: write a routine",
+  "description": "Write a step-by-step routine and get a link that opens it in Routine Run on iPhone. No sign-in.",
+  "version": "1.0.0",
+  "websiteUrl": "https://routinerun.com/developers",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.routinerun.com/mcp/public"
+    }
+  ]
+}

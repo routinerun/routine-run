@@ -1,0 +1,24 @@
+{
+  "id": "routinery",
+  "app": "Routinery",
+  "kind": "planner",
+  "bundleID": "com.alt.goodmorning",
+  "teamID": "X5HEA4B9HU",
+  "summary": "When Routinery reminds you of a routine you also keep here, the same-named routine starts here.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Routinery",
+      "body": "It's time for Morning",
+      "expect": "started",
+      "routine": "Morning"
+    }
+  ],
+  "inApp": [],
+  "verified": false
+}

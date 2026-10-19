@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "routinerun",
+  "description": "Routine Run for Claude Code: the MCP server for your routines and runs, and the skill that writes a routine in the app's form.",
+  "owner": {
+    "name": "Routine Run",
+    "email": "support@routinerun.com"
+  },
+  "plugins": [
+    {
+      "name": "routine-run",
+      "description": "Read, start and move the routines on your iPhone, and write new ones that wait on the phone until you save them.",
+      "category": "productivity",
+      "source": "./plugin",
+      "homepage": "https://routinerun.com/developers"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: A routine I would like to see
+description: Something you do in steps, that the app could ship ready-made.
+labels: [routine, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Everything here is public. Please leave out the names of your routines, your notes,
+        values, addresses, tokens and screenshots with any of those in them. If it needs
+        them, write to support@routinerun.com instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What it is for
+      description: When you do it, and what goes wrong when you do it from memory.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: The steps, if you know them
+      description: One a line is fine. A routine an assistant wrote for you, in the app's form, is fine too.
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Privacy
+      options:
+        - label: There is nothing personal in this issue
+          required: true

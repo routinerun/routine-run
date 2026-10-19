@@ -1,0 +1,30 @@
+{
+  "id": "streaks",
+  "app": "Streaks",
+  "kind": "habits",
+  "bundleID": "com.streaksapp.streak",
+  "summary": "A Streaks reminder for a task named like one of your routines starts that routine. Other reminders pass.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Morning",
+      "body": "Don't forget to complete this task today",
+      "expect": "started",
+      "routine": "Morning"
+    },
+    {
+      "title": "Drink water",
+      "body": "Don't forget to complete this task today",
+      "expect": "noMatch"
+    }
+  ],
+  "inApp": [
+    "Streaks' own Task Complete action marks a task done from a step."
+  ],
+  "verified": false
+}

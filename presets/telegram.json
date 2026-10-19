@@ -1,0 +1,29 @@
+{
+  "id": "telegram",
+  "service": "Telegram",
+  "says": "Send a Telegram message",
+  "summary": "Sends a message from your own Telegram bot to a chat you name.",
+  "docs": "https://core.telegram.org/bots/api#sendmessage",
+  "fields": [
+    {"key": "chat", "example": "123456789"},
+    {"key": "text", "example": "{instance} is done"}
+  ],
+  "secrets": [
+    {"name": "telegram", "is": "The bot's token", "where": "In Telegram: ask @BotFather for /newbot, and it answers with the token. Send your bot a message first, or it cannot write to you."}
+  ],
+  "request": {
+    "method": "POST",
+    "url": "https://api.telegram.org/bot{secret:telegram}/sendMessage",
+    "headers": {"Content-Type": "application/json"},
+    "body": {"chat_id": "{field:chat}", "text": "{field:text}"}
+  },
+  "sends": "The message and the chat's id, to Telegram.",
+  "hosts": ["api.telegram.org"],
+  "samples": [
+    {
+      "fields": {"chat": "123456789", "text": "Leaving now"},
+      "url": "https://api.telegram.org/bot{secret:telegram}/sendMessage",
+      "body": "{\"chat_id\":\"123456789\",\"text\":\"Leaving now\"}"
+    }
+  ]
+}

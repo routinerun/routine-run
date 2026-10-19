@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "focus-off",
+  "name": "Focus Off via Routine Run",
+  "icloud": "4614ee9cfb4944f08118aac847d69ea8",
+  "link": "https://www.icloud.com/shortcuts/4614ee9cfb4944f08118aac847d69ea8",
+  "does": "Turns off whichever Focus is on.",
+  "input": null,
+  "author": "routinerun",
+  "sends": []
+}

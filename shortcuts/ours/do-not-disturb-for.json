@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "do-not-disturb-for",
+  "name": "Do Not Disturb For via Routine Run",
+  "icloud": "45190693a4724555a77c9bbb412a1b2c",
+  "link": "https://www.icloud.com/shortcuts/45190693a4724555a77c9bbb412a1b2c",
+  "does": "Turns on Do Not Disturb for as many minutes as it is given, thirty if none.",
+  "input": "a number of minutes",
+  "author": "routinerun",
+  "sends": []
+}

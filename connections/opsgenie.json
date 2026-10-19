@@ -1,0 +1,26 @@
+{
+  "id": "opsgenie",
+  "app": "Opsgenie",
+  "kind": "oncall",
+  "bundleID": "com.ifountain.opsgenie",
+  "summary": "Every Opsgenie alert starts When something pages you.",
+  "rules": [
+    {
+      "when": "anything",
+      "does": {
+        "start": "6E1B1C2A-0000-4000-D000-000000000001"
+      }
+    }
+  ],
+  "starter": "6E1B1C2A-0000-4000-D000-000000000001",
+  "samples": [
+    {
+      "title": "Opsgenie",
+      "body": "[P1] Checkout latency high",
+      "expect": "started",
+      "routine": "When something pages you"
+    }
+  ],
+  "inApp": [],
+  "verified": false
+}

@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "bluetooth-off",
+  "name": "Bluetooth Off via Routine Run",
+  "icloud": "ef8350e3051641949bcb20a1fe100c6b",
+  "link": "https://www.icloud.com/shortcuts/ef8350e3051641949bcb20a1fe100c6b",
+  "does": "Turns Bluetooth off.",
+  "input": null,
+  "author": "routinerun",
+  "sends": []
+}

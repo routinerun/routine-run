@@ -1,0 +1,30 @@
+{
+  "id": "any",
+  "app": "",
+  "kind": "any",
+  "shortcut": "f9b447ba29404f2b8d358637b401d817",
+  "summary": "Any app's notification that names one of your routines starts it. Make more rules from the notifications it hears.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "app": "Calendar",
+      "title": "Morning",
+      "body": "Starts at 7:00",
+      "expect": "started",
+      "routine": "Morning"
+    },
+    {
+      "app": "Mail",
+      "title": "Your order shipped",
+      "body": "Track it here",
+      "expect": "noMatch"
+    }
+  ],
+  "inApp": [],
+  "verified": true
+}

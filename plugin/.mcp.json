@@ -1,0 +1,6 @@
+{
+  "routine-run": {
+    "type": "http",
+    "url": "https://api.routinerun.com/mcp"
+  }
+}

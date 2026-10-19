@@ -1,0 +1,26 @@
+{
+  "id": "todoist",
+  "app": "Todoist",
+  "kind": "tasks",
+  "bundleID": "com.todoist.ios",
+  "teamID": "S3DD273774",
+  "summary": "A Todoist reminder for a task named like one of your routines starts that routine.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Reminder",
+      "body": "Morning",
+      "expect": "started",
+      "routine": "Morning"
+    }
+  ],
+  "inApp": [
+    "Todoist's own Create Task action adds a task from a step."
+  ],
+  "verified": false
+}

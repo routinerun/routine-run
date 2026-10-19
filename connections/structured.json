@@ -1,0 +1,30 @@
+{
+  "id": "structured",
+  "app": "Structured",
+  "kind": "planner",
+  "bundleID": "com.leomehlig.today",
+  "summary": "When Structured reminds you of a task named like one of your routines, that routine starts.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Morning",
+      "body": "Starts in 5 minutes",
+      "expect": "started",
+      "routine": "Morning"
+    },
+    {
+      "title": "Laundry",
+      "body": "Starts in 5 minutes",
+      "expect": "noMatch"
+    }
+  ],
+  "inApp": [
+    "Structured's own actions add a task: Add New Task to Timeline, to Inbox or All-Day."
+  ],
+  "verified": false
+}

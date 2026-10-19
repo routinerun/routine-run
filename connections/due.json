@@ -1,0 +1,25 @@
+{
+  "id": "due",
+  "app": "Due",
+  "kind": "tasks",
+  "bundleID": "com.phocusllp.due",
+  "summary": "A Due reminder named like one of your routines starts that routine.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Morning",
+      "body": "",
+      "expect": "started",
+      "routine": "Morning"
+    }
+  ],
+  "inApp": [
+    "Due's own Create Reminder action adds a reminder from a step."
+  ],
+  "verified": false
+}

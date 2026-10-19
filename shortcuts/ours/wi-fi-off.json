@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "wi-fi-off",
+  "name": "Wi-Fi Off via Routine Run",
+  "icloud": "f2a4180c580c4d5ca660b6db23535701",
+  "link": "https://www.icloud.com/shortcuts/f2a4180c580c4d5ca660b6db23535701",
+  "does": "Turns Wi-Fi off.",
+  "input": null,
+  "author": "routinerun",
+  "sends": []
+}

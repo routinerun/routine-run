@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "open-app",
+  "name": "Open App via Routine Run",
+  "icloud": "841bb7839ad843839460665f3eca3768",
+  "link": "https://www.icloud.com/shortcuts/841bb7839ad843839460665f3eca3768",
+  "does": "Opens any app on the phone by its name, including the ones with no link to open them by.",
+  "input": "the app's name as it reads on the Home Screen, like Notes or Spotify",
+  "author": "routinerun",
+  "sends": []
+}

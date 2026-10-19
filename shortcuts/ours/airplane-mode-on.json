@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "airplane-mode-on",
+  "name": "Airplane Mode On via Routine Run",
+  "icloud": "1b1f16bd49954c7db4f957d4a03a5c80",
+  "link": "https://www.icloud.com/shortcuts/1b1f16bd49954c7db4f957d4a03a5c80",
+  "does": "Turns Airplane Mode on.",
+  "input": null,
+  "author": "routinerun",
+  "sends": []
+}

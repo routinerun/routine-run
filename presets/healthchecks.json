@@ -1,0 +1,23 @@
+{
+  "id": "healthchecks",
+  "service": "Healthchecks.io",
+  "says": "Ping Healthchecks.io",
+  "summary": "Tells a Healthchecks.io check that this happened, so it can say when one day it did not.",
+  "docs": "https://healthchecks.io/docs/http_api/",
+  "fields": [],
+  "secrets": [
+    {"name": "healthchecks", "is": "The check's id, the part after hc-ping.com/", "where": "On healthchecks.io: open the check and copy its ping URL."}
+  ],
+  "request": {
+    "method": "POST",
+    "url": "https://hc-ping.com/{secret:healthchecks}"
+  },
+  "sends": "Only that the step was reached, to Healthchecks.io.",
+  "hosts": ["hc-ping.com"],
+  "samples": [
+    {
+      "fields": {},
+      "url": "https://hc-ping.com/{secret:healthchecks}"
+    }
+  ]
+}

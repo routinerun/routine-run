@@ -1,0 +1,24 @@
+{
+  "id": "homeassistant",
+  "app": "Home Assistant",
+  "kind": "home",
+  "bundleID": "io.robbie.HomeAssistant",
+  "teamID": "QMQYCKL255",
+  "summary": "A Home Assistant notification that names one of your routines starts it, so an automation there can start a routine here.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Home",
+      "body": "Start Morning",
+      "expect": "started",
+      "routine": "Morning"
+    }
+  ],
+  "inApp": [],
+  "verified": false
+}

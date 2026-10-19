@@ -1,0 +1,34 @@
+# A shortcut's iCloud link dies when it is deleted or shared again under a new record.
+# Once a week, every link in the catalogues is asked of Apple's own records API, and a
+# link that no longer answers with the same name opens an issue.
+name: Shortcut links
+on:
+  schedule:
+    - cron: '17 9 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const fs = require('fs'), path = require('path');
+            const files = ['shortcuts/ours', 'connections'].flatMap(d => fs.existsSync(d) ? fs.readdirSync(d).filter(f => f.endsWith('.json')).map(f => path.join(d, f)) : []);
+            const dead = [];
+            for (const file of files) {
+              const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+              const id = data.icloud ?? data.shortcut;
+              if (!id) continue;
+              const r = await fetch(`https://www.icloud.com/shortcuts/api/records/${id}`);
+              if (!r.ok) { dead.push(`- \`${file}\`: ${r.status}`); continue; }
+              const record = await r.json();
+              const name = record.fields?.name?.value;
+              if (data.name && name && name !== data.name) dead.push(`- \`${file}\`: now called “${name}”`);
+            }
+            if (dead.length === 0) return;
+            await github.rest.issues.create({ ...context.repo, title: 'Shortcut links that no longer answer', labels: ['shortcut', 'triage'], body: dead.join('\n') });

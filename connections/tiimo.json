@@ -1,0 +1,23 @@
+{
+  "id": "tiimo",
+  "app": "Tiimo",
+  "kind": "planner",
+  "bundleID": "com.tiimo.app",
+  "summary": "When Tiimo says an activity named like one of your routines is starting, that routine starts.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Morning",
+      "body": "Time to start",
+      "expect": "started",
+      "routine": "Morning"
+    }
+  ],
+  "inApp": [],
+  "verified": false
+}

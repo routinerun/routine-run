@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "start-timer",
+  "name": "Start Timer via Routine Run",
+  "icloud": "20514304d5cf4825971cbff38adfbe70",
+  "link": "https://www.icloud.com/shortcuts/20514304d5cf4825971cbff38adfbe70",
+  "does": "Starts a timer in Clock for the minutes it is given, twenty-five if none.",
+  "input": "a number of minutes",
+  "author": "routinerun",
+  "sends": []
+}

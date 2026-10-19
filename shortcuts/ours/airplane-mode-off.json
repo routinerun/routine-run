@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "airplane-mode-off",
+  "name": "Airplane Mode Off via Routine Run",
+  "icloud": "01ea2c21fd38451f9bee0bcd33e7c08f",
+  "link": "https://www.icloud.com/shortcuts/01ea2c21fd38451f9bee0bcd33e7c08f",
+  "does": "Turns Airplane Mode off.",
+  "input": null,
+  "author": "routinerun",
+  "sends": []
+}

@@ -1,0 +1,26 @@
+{
+  "id": "things",
+  "app": "Things",
+  "kind": "tasks",
+  "bundleID": "com.culturedcode.ThingsiPhone",
+  "teamID": "H5X576SH47",
+  "summary": "A Things reminder for a to-do named like one of your routines starts that routine.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Morning",
+      "body": "",
+      "expect": "started",
+      "routine": "Morning"
+    }
+  ],
+  "inApp": [
+    "Things' own Create To-Do action adds a to-do from a step."
+  ],
+  "verified": false
+}

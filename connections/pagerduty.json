@@ -1,0 +1,28 @@
+{
+  "id": "pagerduty",
+  "app": "PagerDuty",
+  "kind": "oncall",
+  "bundleID": "com.pagerduty.PagerDuty",
+  "teamID": "CFE964FU5F",
+  "shortcut": "5f019a25dc8f4ff781582d36660391c2",
+  "summary": "Every PagerDuty page starts When something pages you, named after the incident.",
+  "rules": [
+    {
+      "when": "anything",
+      "does": {
+        "start": "6E1B1C2A-0000-4000-D000-000000000001"
+      }
+    }
+  ],
+  "starter": "6E1B1C2A-0000-4000-D000-000000000001",
+  "samples": [
+    {
+      "title": "",
+      "body": "ALRT #1 on Default Service: Test alert",
+      "expect": "started",
+      "routine": "When something pages you"
+    }
+  ],
+  "inApp": [],
+  "verified": true
+}

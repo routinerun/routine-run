@@ -1,0 +1,28 @@
+{
+  "id": "googlechat",
+  "service": "Google Chat",
+  "says": "Post to Google Chat",
+  "summary": "Posts a message to a Google Chat space through its webhook.",
+  "docs": "https://developers.google.com/workspace/chat/quickstart/webhooks",
+  "fields": [
+    {"key": "text", "example": "{instance} is done"}
+  ],
+  "secrets": [
+    {"name": "googlechat", "is": "The end of the webhook's address, after /v1/spaces/", "where": "In Google Chat: the space's Apps & integrations, Webhooks, Add webhook, then copy its URL."}
+  ],
+  "request": {
+    "method": "POST",
+    "url": "https://chat.googleapis.com/v1/spaces/{secret:googlechat}",
+    "headers": {"Content-Type": "application/json"},
+    "body": {"text": "{field:text}"}
+  },
+  "sends": "The message, to Google Chat.",
+  "hosts": ["chat.googleapis.com"],
+  "samples": [
+    {
+      "fields": {"text": "Standup notes are in"},
+      "url": "https://chat.googleapis.com/v1/spaces/{secret:googlechat}",
+      "body": "{\"text\":\"Standup notes are in\"}"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "focus-on",
+  "name": "Focus On via Routine Run",
+  "icloud": "9d90d53c43dd4c6c9d1e76ab86ae7407",
+  "link": "https://www.icloud.com/shortcuts/9d90d53c43dd4c6c9d1e76ab86ae7407",
+  "does": "Turns on the Focus it is given by name, or Do Not Disturb if none, until it is turned off.",
+  "input": "the name of a Focus that exists on the phone, like Work — or nothing, for Do Not Disturb",
+  "author": "routinerun",
+  "sends": []
+}

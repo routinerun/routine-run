@@ -1,0 +1,55 @@
+name: Connect Routine Run to an app or a system
+description: An app whose notifications should start or move a routine, or a system that can send a webhook.
+labels: [connection, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Everything here is public. Please leave out the names of your routines, your notes,
+        values, addresses, tokens and screenshots with any of those in them. If it needs
+        them, write to support@routinerun.com instead.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Which
+      options:
+        - An app's notifications, on the phone
+        - A system that can send a webhook
+        - A service a step should send to
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: The app, system or service
+      placeholder: Opsgenie
+    validations:
+      required: true
+  - type: textarea
+    id: samples
+    attributes:
+      label: What its notifications say
+      description: |
+        For an app: connect Any app in Routine Run (Settings › Connect an app), let a few come in,
+        and copy App, Title and Body of each from History › Decisions. One per block. Take out
+        anything personal and put a word like NAME in its place.
+      render: text
+  - type: input
+    id: docs
+    attributes:
+      label: Its documentation
+      description: For a system or a service, the page that describes its webhooks.
+  - type: textarea
+    id: what
+    attributes:
+      label: What should happen
+      description: Which routine starts, what moves on, what is written down, what is left alone.
+    validations:
+      required: true
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Privacy
+      options:
+        - label: There is nothing personal in this issue
+          required: true

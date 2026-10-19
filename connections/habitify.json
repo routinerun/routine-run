@@ -1,0 +1,26 @@
+{
+  "id": "habitify",
+  "app": "Habitify",
+  "kind": "habits",
+  "bundleID": "co.vuvo.habitify",
+  "teamID": "PFK5S2E4H5",
+  "summary": "A Habitify reminder for a habit named like one of your routines starts that routine.",
+  "rules": [
+    {
+      "when": "namesARoutine",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "Morning",
+      "body": "Time for your habit",
+      "expect": "started",
+      "routine": "Morning"
+    }
+  ],
+  "inApp": [
+    "Habitify's own Log Habit action logs a habit from a step."
+  ],
+  "verified": false
+}

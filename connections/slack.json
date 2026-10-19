@@ -1,0 +1,32 @@
+{
+  "id": "slack",
+  "app": "Slack",
+  "kind": "chat",
+  "bundleID": "com.tinyspeck.chatlyio",
+  "teamID": "BQR82RBBHL",
+  "summary": "A Slack message that says \"Routine Run:\" and a routine's name starts that routine. Everything else passes.",
+  "rules": [
+    {
+      "when": {
+        "contains": "Routine Run:"
+      },
+      "in": "body",
+      "does": "startNamed"
+    }
+  ],
+  "samples": [
+    {
+      "title": "#deploys",
+      "body": "Routine Run: Morning",
+      "expect": "started",
+      "routine": "Morning"
+    },
+    {
+      "title": "#general",
+      "body": "Morning everyone",
+      "expect": "noMatch"
+    }
+  ],
+  "inApp": [],
+  "verified": false
+}

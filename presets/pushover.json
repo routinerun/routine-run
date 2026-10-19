@@ -1,0 +1,35 @@
+{
+  "id": "pushover",
+  "service": "Pushover",
+  "says": "Push with Pushover",
+  "summary": "Pushes a notification to your devices through Pushover.",
+  "docs": "https://pushover.net/api",
+  "fields": [
+    {"key": "text", "example": "{instance} is done"},
+    {"key": "title", "optional": true}
+  ],
+  "secrets": [
+    {"name": "pushover", "is": "Your application's API token", "where": "On pushover.net: Create an Application/API Token, and copy its token."},
+    {"name": "pushover-user", "is": "Your user key", "where": "On pushover.net: the user key at the top of your dashboard."}
+  ],
+  "request": {
+    "method": "POST",
+    "url": "https://api.pushover.net/1/messages.json",
+    "headers": {"Content-Type": "application/json"},
+    "body": {"token": "{secret:pushover}", "user": "{secret:pushover-user}", "message": "{field:text}", "title": "{field:title}"}
+  },
+  "sends": "The message and its title, to Pushover.",
+  "hosts": ["api.pushover.net"],
+  "samples": [
+    {
+      "fields": {"text": "Take the bins out"},
+      "url": "https://api.pushover.net/1/messages.json",
+      "body": "{\"message\":\"Take the bins out\",\"token\":\"{secret:pushover}\",\"user\":\"{secret:pushover-user}\"}"
+    },
+    {
+      "fields": {"text": "Take the bins out", "title": "Evening"},
+      "url": "https://api.pushover.net/1/messages.json",
+      "body": "{\"message\":\"Take the bins out\",\"title\":\"Evening\",\"token\":\"{secret:pushover}\",\"user\":\"{secret:pushover-user}\"}"
+    }
+  ]
+}

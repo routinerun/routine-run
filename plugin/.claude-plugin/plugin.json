@@ -1,0 +1,10 @@
+{
+  "name": "routine-run",
+  "description": "Read, start and move the routines on your iPhone, and write new ones that wait on the phone until you save them. Signing in is a code typed into the app; there is no account.",
+  "author": {
+    "name": "Routine Run"
+  },
+  "version": "1.0.0",
+  "homepage": "https://routinerun.com",
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "play-playlist",
+  "name": "Play Playlist via Routine Run",
+  "icloud": "d620b15ccab74374be385fd45f0a7c72",
+  "link": "https://www.icloud.com/shortcuts/d620b15ccab74374be385fd45f0a7c72",
+  "does": "Plays an Apple Music playlist by name, shuffled.",
+  "input": "the playlist's exact name",
+  "author": "routinerun",
+  "sends": []
+}

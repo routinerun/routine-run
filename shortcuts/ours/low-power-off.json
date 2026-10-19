@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "low-power-off",
+  "name": "Low Power Off via Routine Run",
+  "icloud": "a59d408f923b4101823d8c34d4cbe4e8",
+  "link": "https://www.icloud.com/shortcuts/a59d408f923b4101823d8c34d4cbe4e8",
+  "does": "Turns Low Power Mode off.",
+  "input": null,
+  "author": "routinerun",
+  "sends": []
+}

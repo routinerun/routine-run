@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "volume",
+  "name": "Volume via Routine Run",
+  "icloud": "17de1dffa814443b878c208c278997bc",
+  "link": "https://www.icloud.com/shortcuts/17de1dffa814443b878c208c278997bc",
+  "does": "Sets the volume to the percentage it is given, fifty if none.",
+  "input": "a percentage, 0 to 100",
+  "author": "routinerun",
+  "sends": []
+}

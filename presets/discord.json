@@ -1,0 +1,28 @@
+{
+  "id": "discord",
+  "service": "Discord",
+  "says": "Post to Discord",
+  "summary": "Posts a message to a Discord channel through the channel's webhook.",
+  "docs": "https://discord.com/developers/docs/resources/webhook#execute-webhook",
+  "fields": [
+    {"key": "text", "example": "{instance} is done"}
+  ],
+  "secrets": [
+    {"name": "discord", "is": "The end of the webhook's address, after /api/webhooks/", "where": "In Discord: the channel's settings, Integrations, Webhooks, New Webhook, Copy Webhook URL."}
+  ],
+  "request": {
+    "method": "POST",
+    "url": "https://discord.com/api/webhooks/{secret:discord}",
+    "headers": {"Content-Type": "application/json"},
+    "body": {"content": "{field:text}"}
+  },
+  "sends": "The message, to Discord.",
+  "hosts": ["discord.com"],
+  "samples": [
+    {
+      "fields": {"text": "Morning is done"},
+      "url": "https://discord.com/api/webhooks/{secret:discord}",
+      "body": "{\"content\":\"Morning is done\"}"
+    }
+  ]
+}

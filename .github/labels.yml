@@ -1,0 +1,13 @@
+- {name: triage, color: "ededed", description: Not read yet}
+- {name: bug, color: "d73a4a", description: Something does not work}
+- {name: routine, color: "0e8a16", description: A routine somebody wants}
+- {name: connection, color: "1d76db", description: An app or a system to hear from or send to}
+- {name: shortcut, color: "5319e7", description: A shortcut for what a step cannot do}
+- {name: developers, color: "006b75", description: REST, MCP, the skill}
+- {name: on-call, color: "b60205", description: Being paged}
+- {name: ios-27, color: "c5def5", description: Needs iOS 27}
+- {name: accepted, color: "2ea44f", description: Will be done}
+- {name: needs-phone, color: "fbca04", description: Can only be checked on a device}
+- {name: not-planned, color: "cfd3d7", description: Read, and not going to be done}
+- {name: copied-file, color: "bfd4f2", description: Changes a file copied from the app's repository}
+- {name: personal-data, color: "000000", description: Was hidden for holding something personal}

@@ -1,0 +1,50 @@
+name: Something does not work
+description: The app, the watch, the Lock Screen card, a widget, or a step that did not do what it says.
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Everything here is public. Please leave out the names of your routines, your notes,
+        values, addresses, tokens and screenshots with any of those in them. If it needs
+        them, write to support@routinerun.com instead.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Settings, at the foot — for example 1.0 (210)
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - iPhone app
+        - Apple Watch
+        - Lock Screen or Dynamic Island
+        - Widget
+        - Siri or Shortcuts
+        - A connection or an assistant
+        - The website
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: iOS and watchOS
+      placeholder: iOS 27.0, watchOS 27.0
+  - type: textarea
+    id: what
+    attributes:
+      label: What you did, what happened, and what you expected
+      description: Steps, as plainly as you would tell a friend.
+    validations:
+      required: true
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Privacy
+      options:
+        - label: There is nothing personal in this issue
+          required: true

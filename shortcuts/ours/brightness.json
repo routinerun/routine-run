@@ -1,0 +1,11 @@
+{
+  "catalogue": 1,
+  "id": "brightness",
+  "name": "Brightness via Routine Run",
+  "icloud": "b7c95a01e33449bfadfee7d37ea3601f",
+  "link": "https://www.icloud.com/shortcuts/b7c95a01e33449bfadfee7d37ea3601f",
+  "does": "Sets the screen's brightness to the percentage it is given, fifty if none.",
+  "input": "a percentage, 0 to 100",
+  "author": "routinerun",
+  "sends": []
+}

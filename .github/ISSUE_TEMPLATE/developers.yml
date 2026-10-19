@@ -1,0 +1,41 @@
+name: The API, MCP or the skill
+description: A connection's address, the MCP servers, the skill, OpenAPI.
+labels: [developers, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Take out the connection's id and its secret.** An `rr_…` secret and an address ending
+        in `/v1/in/<id>` let anybody send to that phone. If one has been posted anywhere,
+        remove the connection in the app and make a new one.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which
+      options:
+        - REST — a connection's address
+        - MCP — api.routinerun.com/mcp
+        - MCP — api.routinerun.com/mcp/public
+        - The skill
+        - OpenAPI
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Client
+      placeholder: Claude, ChatGPT, curl, Home Assistant…
+  - type: textarea
+    id: what
+    attributes:
+      label: What you sent, what came back, and what you expected
+      render: text
+    validations:
+      required: true
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Privacy
+      options:
+        - label: There is nothing personal in this issue
+          required: true

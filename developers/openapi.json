@@ -1,0 +1,958 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Routine Run connections",
+    "version": "1",
+    "description": "An address made in the Routine Run app (Settings \u203a Connections) starts or moves a routine on the one iPhone that made it. https://routinerun.com/developers"
+  },
+  "servers": [
+    {
+      "url": "https://api.routinerun.com/v1/in/{connection}",
+      "variables": {
+        "connection": {
+          "default": "00000000-0000-0000-0000-000000000000",
+          "description": "The connection's id, from its address."
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "secret": []
+    }
+  ],
+  "paths": {
+    "/events": {
+      "post": {
+        "summary": "Hand over an event",
+        "description": "What Handle Event does in Shortcuts: the person's Sources decide which routine starts.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "What happened."
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "More of it."
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who sent it. The connection's name if left out."
+                  },
+                  "externalId": {
+                    "type": "string",
+                    "description": "The sender's own id; a duplicate is recognised by it."
+                  },
+                  "routine": {
+                    "type": "string",
+                    "description": "A routine to start, by name or id, instead of letting Sources decide."
+                  },
+                  "fields": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/runs": {
+      "post": {
+        "summary": "Start a routine",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "routine"
+                ],
+                "properties": {
+                  "routine": {
+                    "type": "string",
+                    "description": "The routine's name, in any case, or its id."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Runs going now",
+        "operationId": "listRuns",
+        "responses": {
+          "200": {
+            "description": "The phone's answer"
+          },
+          "504": {
+            "description": "The phone did not answer in time"
+          }
+        }
+      }
+    },
+    "/runs/{run}/next": {
+      "post": {
+        "summary": "Move a run on",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "expectsStep": {
+                    "type": "string",
+                    "description": "The step id the run should be on; refused if it has moved."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/runs/{run}/notes": {
+      "post": {
+        "summary": "Write a note on a run",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The note."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/runs/{run}/values/{key}": {
+      "put": {
+        "summary": "Set a value on a run",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "description": "A text, a number or true/false. Empty removes it."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/routines/{routine}/steps": {
+      "post": {
+        "summary": "Add a step to a list that stays open",
+        "parameters": [
+          {
+            "name": "routine",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The routine's name or id."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The step, or a link."
+                  },
+                  "detail": {
+                    "type": "string",
+                    "description": "A line under it."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/pagerduty": {
+      "post": {
+        "summary": "Take a PagerDuty Webhooks V3 delivery",
+        "description": "Send it as PagerDuty sends it, with the secret as a custom Authorization header.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/commands/{command}": {
+      "get": {
+        "summary": "What became of a command",
+        "parameters": [
+          {
+            "name": "command",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The phone's answer, kept for an hour.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "command": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "waiting",
+                        "done",
+                        "refused",
+                        "tooOld",
+                        "runHadMoved",
+                        "alreadyDone",
+                        "notFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/runs/{run}/pause": {
+      "post": {
+        "summary": "Pause the run",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "operationId": "pauseRun"
+      }
+    },
+    "/runs/{run}/resume": {
+      "post": {
+        "summary": "Resume the run",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "operationId": "resumeRun"
+      }
+    },
+    "/runs/{run}/stop": {
+      "post": {
+        "summary": "Stop the run",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "operationId": "stopRun"
+      }
+    },
+    "/runs/{run}/later": {
+      "post": {
+        "summary": "Put the step in hand one place down",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "expectsStep": {
+                    "type": "string",
+                    "description": "The step id the run should be on; refused if it has moved."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "operationId": "putLater"
+      }
+    },
+    "/runs/{run}/last": {
+      "post": {
+        "summary": "Put the step in hand at the end",
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The run's id."
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "expectsStep": {
+                    "type": "string",
+                    "description": "The step id the run should be on; refused if it has moved."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Handed to Apple for the phone. Not yet done.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          },
+          "410": {
+            "$ref": "#/components/responses/Error"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error"
+          }
+        },
+        "operationId": "putLast"
+      }
+    },
+    "/routines": {
+      "get": {
+        "summary": "List routines",
+        "operationId": "listRoutines",
+        "responses": {
+          "200": {
+            "description": "The phone's answer"
+          },
+          "504": {
+            "description": "The phone did not answer in time"
+          }
+        },
+        "parameters": [
+          {
+            "name": "match",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Part of a name"
+          }
+        ]
+      }
+    },
+    "/routines/{routine}": {
+      "get": {
+        "summary": "One routine's steps",
+        "operationId": "getRoutine",
+        "responses": {
+          "200": {
+            "description": "The phone's answer"
+          },
+          "504": {
+            "description": "The phone did not answer in time"
+          }
+        },
+        "parameters": [
+          {
+            "name": "routine",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name or id"
+          }
+        ]
+      }
+    },
+    "/runs/{run}": {
+      "get": {
+        "summary": "One run",
+        "operationId": "getRun",
+        "responses": {
+          "200": {
+            "description": "The phone's answer"
+          },
+          "504": {
+            "description": "The phone did not answer in time"
+          }
+        },
+        "parameters": [
+          {
+            "name": "run",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The run's id"
+          }
+        ]
+      }
+    },
+    "/history": {
+      "get": {
+        "summary": "How recent days went",
+        "operationId": "getHistory",
+        "responses": {
+          "200": {
+            "description": "The phone's answer"
+          },
+          "504": {
+            "description": "The phone did not answer in time"
+          }
+        },
+        "parameters": [
+          {
+            "name": "days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "1 to 92, 7 if left out"
+          },
+          {
+            "name": "routine",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Only this routine"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "secret": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "The connection's secret, rr_\u2026, shown in the app."
+      }
+    },
+    "schemas": {
+      "Accepted": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "accepted": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "Error": {
+        "description": "Refused; error says why.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    }
+  }
+}

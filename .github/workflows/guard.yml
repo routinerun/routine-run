@@ -1,0 +1,29 @@
+# A pull request that changes a file copied from the app's repository is answered rather
+# than merged: the change has to be made where the file comes from, in the same commit as
+# the app. Folders called community/ are the exception. No code from the pull request is
+# checked out or run here, which is what makes pull_request_target safe to use.
+name: Copied files
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+permissions:
+  pull-requests: write
+  issues: write
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login != 'denyskorolkov'
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const files = await github.paginate(github.rest.pulls.listFiles, { ...context.repo, pull_number: pr.number });
+            const copied = files.map(f => f.filename).filter(f => !/(^|\/)community\//.test(f));
+            if (copied.length === 0) return;
+            await github.rest.issues.addLabels({ ...context.repo, issue_number: pr.number, labels: ['copied-file'] });
+            await github.rest.issues.createComment({ ...context.repo, issue_number: pr.number, body:
+              `Thank you. ${copied.length === 1 ? 'This file is' : 'These files are'} copied out of the repository the app is built from, and a change has to be made there, in the same commit as the app it describes:\n\n` +
+              copied.map(f => `- \`${f}\``).join('\n') +
+              `\n\nCould you open an issue with what should change instead? It is linked from here and nothing you wrote is lost. See CONTRIBUTING.md.` });
+            await github.rest.pulls.update({ ...context.repo, pull_number: pr.number, state: 'closed' });
