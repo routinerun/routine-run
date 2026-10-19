@@ -3,8 +3,13 @@
   "name": "com.routinerun/routine-writer",
   "title": "Routine Run: write a routine",
   "description": "Write a step-by-step routine and get a link that opens it in Routine Run on iPhone. No sign-in.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://routinerun.com/developers",
+  "repository": {
+    "url": "https://github.com/routinerun/routine-run",
+    "source": "github",
+    "subfolder": "mcp"
+  },
   "remotes": [
     {
       "type": "streamable-http",
