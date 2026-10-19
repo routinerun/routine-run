@@ -22,9 +22,9 @@ There is no account and no API key for the whole service: an address reaches the
 | Request | Body | What the phone does |
 |---|---|---|
 | `POST /events` | `title`, and `body`, `source`, `externalId`, `routine`, `fields` if you have them | What **Handle Event** does: the person's Sources decide which routine starts |
-| `POST /runs` | `routine` — a name or an id, and `askFirst: true` to wait for the person's OK | Starts that routine, or puts Start and Drop in In hand |
+| `POST /runs` | `routine` — a name or an id; `name` and `values` (an object of key → value) for the run; `restart: true`; `askFirst: true` to wait for the person's OK | Starts that routine, or puts Start and Drop in In hand. A routine that runs one at a time and is already going answers `alreadyGoing` unless `restart` is said |
 | `POST /runs` | `written` — a routine in the [written form](https://routinerun.com/llms-routine.txt), and `askFirst` | Starts a run of those steps, kept out of Routines unless the person keeps it |
-| `POST /runs` | `routine` and `at` — an ISO 8601 moment to come, and `askFirst` | Plans a run of that routine; it shows as Planned and begins then |
+| `POST /runs` | `routine` and `at` — an ISO 8601 moment to come; `name`, `values` and `askFirst` | Plans a run of that routine; it shows as Planned and begins then |
 | `POST /runs/{run}/next` | `expectsStep` if you know it | Moves the run on, unless it has moved since |
 | `POST /runs/{run}/pause`, `/resume`, `/stop` | nothing | Pauses, resumes or stops the run, as its own buttons do |
 | `POST /runs/{run}/later`, `/last` | `expectsStep` if you know it | Puts the step in hand one place down, or at the end |
@@ -70,7 +70,11 @@ Every request is answered at once with `202` and a command id:
 GET /v1/in/<connection id>/commands/<command id>
 ```
 
-`status` is one of:
+`status` is one of the words below, and where the command started or found a run, `run` is its id — what `/runs/{run}/…` takes next:
+
+```
+{"command": "896ea5dc-…", "status": "done", "run": "3f0c2b1e-…"}
+```
 
 | Status | Meaning |
 |---|---|
@@ -81,6 +85,7 @@ GET /v1/in/<connection id>/commands/<command id>
 | `runHadMoved` | A Next that expected another step |
 | `alreadyDone` | The same command, again |
 | `notFound` | No such routine or run on the phone |
+| `alreadyGoing` | A start of a routine that runs one at a time, with a run of it going: nothing started or ended, and `run` is the one going |
 
 ## How long a command waits
 
