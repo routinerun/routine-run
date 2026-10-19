@@ -17,10 +17,11 @@ THE FORM (version 1):
 - "routineRun": 1 — always.
 - "name": what the routine is called.
 - "about": one or two sentences on what it is for. If a step needs something the app cannot do by itself — a shortcut I have to make, an app I need — say so here.
+- Every "about" is Markdown, drawn as such: **bold**, *italic*, a list ("- " or "1. " lines, separated by \n), and [links](https://…), which are tappable. Reach for a list where the step is a handful of things to check or bring; plain sentences otherwise. No headings, tables or pictures.
 - "symbol": an SF Symbols name, like "sunrise" or "timer". Leave it out if unsure.
 - "colour": one of red, orange, yellow, green, mint, teal, blue, indigo, purple, pink, brown, grey.
 - "values": optional named values the routine keeps, as "name": value — words, a number, true or false, or a link.
-- "steps": the steps, in order. Each has "title" (what to do, as an instruction), and may have "about" (how or why, and the tip that saves a beginner — a sentence or three; Markdown links like [How to change a washer](https://…) are tappable), "symbol", "colour", "minutes" (if it runs on a clock), "times" (if it is done more than once), "values", "does" (actions that happen when the step is reached), "buttons" (actions that wait for me to press them) and "links".
+- "steps": the steps, in order. Each has "title" (what to do, as an instruction), and may have "about" (how or why, and the tip that saves a beginner — a sentence or three, or a short list), "symbol", "colour", "minutes" (if it runs on a clock), "times" (if it is done more than once), "values", "does" (actions that happen when the step is reached), "buttons" (actions that wait for me to press them) and "links".
 - "runName": for a routine with several runs going at once, what each is called, naming a value — "Due diligence: {param:company}" — so the runs read "Due diligence: Acme" rather than "Due diligence 3".
 - A step's "title" and "about" may name one of the routine's "values" as {param:name}, for what is only known on the day — "Go to window {param:window}" reads "Go to window 7" once the run is told 7, and "…" until then. Give the value in the routine's "values", empty if nobody knows it yet.
 - "links" on a step: things worth opening while doing it — a how-to video, a recipe, a map — as [{"title": "Fixing a dripping tap", "url": "https://…"}]. Only links you are sure exist. For a video, a YouTube search link (https://www.youtube.com/results?search_query=…) is better than a video you cannot check.
