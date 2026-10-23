@@ -8,7 +8,7 @@ can never say a button is somewhere it no longer is. That decides how you can he
 
 **An issue.** A bug, a page that is wrong, a routine you would like, an app whose
 notifications should start a routine, a service a step should be able to send to. The
-forms ask for what we need. [Open one](https://github.com/routinerun/routine-run/issues/new/choose).
+forms ask for what we need. [Open one](https://github.com/routinerun/routinerun/issues/new/choose).
 
 **The real wording of an app's notifications.** The [connections](connections/README.md)
 work by reading what another app's notification says, and for most apps we have not seen

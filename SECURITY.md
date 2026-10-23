@@ -1,7 +1,7 @@
 # Reporting a security problem
 
 Please do not open an issue. Report it privately, through
-[a security advisory](https://github.com/routinerun/routine-run/security/advisories/new) on this repository, or by email to
+[a security advisory](https://github.com/routinerun/routinerun/security/advisories/new) on this repository, or by email to
 support@routinerun.com with "Security" in the subject.
 
 What is in scope: the app, the relay at `api.routinerun.com` (connections, the API and

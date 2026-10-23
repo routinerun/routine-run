@@ -4,7 +4,7 @@ contact_links:
     url: mailto:support@routinerun.com
     about: Write to us. Support cannot see your routines, and nobody here can either.
   - name: A security problem
-    url: https://github.com/routinerun/routine-run/security/advisories/new
+    url: https://github.com/routinerun/routinerun/security/advisories/new
     about: Privately, please. Not in an issue.
   - name: How do I…
     url: https://routinerun.com/help

@@ -3,10 +3,10 @@
   "name": "com.routinerun/routine-run",
   "title": "Routine Run",
   "description": "Read, start and move the routines on your iPhone; suggest changes you approve on the phone.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "websiteUrl": "https://routinerun.com/developers",
   "repository": {
-    "url": "https://github.com/routinerun/routine-run",
+    "url": "https://github.com/routinerun/routinerun",
     "source": "github",
     "subfolder": "mcp"
   },

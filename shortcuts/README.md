@@ -17,6 +17,6 @@ A shortcut is somebody's code on your phone. Before adding one, the sheet Shortc
 you lists what it does; read it.
 
 Shortcuts other people write will go in `community/`, reviewed against what Apple's own
-record of each says it does. Until then, [suggest one](https://github.com/routinerun/routine-run/issues/new?template=shortcut.yml).
+record of each says it does. Until then, [suggest one](https://github.com/routinerun/routinerun/issues/new?template=shortcut.yml).
 
 Licence: [CC0](../LICENSE-DATA).

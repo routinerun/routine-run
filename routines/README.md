@@ -17,6 +17,6 @@ it was written in.
 
 To write one of your own for the app, use [the form](../plugin/skills/routine-run/SKILL.md) or the
 public MCP server. Routines other people write will go in `community/` once there is a way
-to review them; until then, [ask for one](https://github.com/routinerun/routine-run/issues/new?template=routine.yml).
+to review them; until then, [ask for one](https://github.com/routinerun/routinerun/issues/new?template=routine.yml).
 
 Licence: [CC BY 4.0](../LICENSE-CONTENT).

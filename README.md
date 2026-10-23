@@ -56,7 +56,7 @@ app's form and hands back a link that opens it in the app.
 In Claude Code, both the server and the skill come with one plugin:
 
 ```
-/plugin marketplace add routinerun/routine-run
+/plugin marketplace add routinerun/routinerun
 /plugin install routine-run@routinerun
 ```
 
@@ -80,12 +80,12 @@ own code is not here, and that is deliberate.
 
 ## Something wrong, or something missing
 
-[Open an issue](https://github.com/routinerun/routine-run/issues/new/choose): a bug, a routine you would like, an app or a
+[Open an issue](https://github.com/routinerun/routinerun/issues/new/choose): a bug, a routine you would like, an app or a
 service to connect, or a question about the API or MCP. Everything here is public, so leave
 out your routines, notes, values and anything else of yours; for that, write to
 support@routinerun.com.
 
-A security problem goes [privately](https://github.com/routinerun/routine-run/security/advisories/new), not in an issue.
+A security problem goes [privately](https://github.com/routinerun/routinerun/security/advisories/new), not in an issue.
 
 ## Licences
 

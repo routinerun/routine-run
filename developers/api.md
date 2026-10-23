@@ -2,7 +2,7 @@
 
 A connection is an HTTPS address that starts or moves a routine on one person's iPhone. It is made in the app, under Settings › Connections, and this page is what a script, a pager or an automation sends to it.
 
-The OpenAPI file, the MCP registry entries, examples and a Claude Code plugin are also on [GitHub](https://github.com/routinerun/routine-run), which is where an issue about any of this goes.
+The OpenAPI file, the MCP registry entries, examples and a Claude Code plugin are also on [GitHub](https://github.com/routinerun/routinerun), which is where an issue about any of this goes.
 
 ## The address and the secret
 

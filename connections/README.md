@@ -59,6 +59,6 @@ and a rule written against "starts in 5 minutes" stops matching in German.
 Most of these have samples that were guessed, not seen (`"verified": false`). If you use
 one of these apps, connect **Any app** in Routine Run, let a few notifications come in, and
 send what History › Decisions shows through the
-[connection form](https://github.com/routinerun/routine-run/issues/new?template=connection.yml). Leave out anything personal.
+[connection form](https://github.com/routinerun/routinerun/issues/new?template=connection.yml). Leave out anything personal.
 
 Licence: [CC0](../LICENSE-DATA).
